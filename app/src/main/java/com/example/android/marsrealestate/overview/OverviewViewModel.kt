@@ -38,10 +38,10 @@ class OverviewViewModel : ViewModel() {
         get() = _status
 
 
-    private val _property = MutableLiveData<MarsProperty>()
+    private val _properties = MutableLiveData<List<MarsProperty>>()
 
-    val property: LiveData<MarsProperty>
-        get() = _property
+    val properties: LiveData<List<MarsProperty>>
+        get() = _properties
 
     /**
      * Call getMarsRealEstateProperties() on init so we can display status immediately.
@@ -61,7 +61,7 @@ class OverviewViewModel : ViewModel() {
 
                 if (listResult.isNotEmpty()){
 
-                    _property.value = listResult[0]
+                    _properties.value = listResult
                 }
 
             } catch (e: Exception){
